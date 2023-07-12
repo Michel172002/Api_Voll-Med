@@ -7,9 +7,9 @@ import med.voll.api.doctor.DoctorDataPublic;
 import med.voll.api.doctor.DoctorDto;
 import med.voll.api.doctor.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("doctors")
@@ -25,7 +25,7 @@ public class DoctorController {
     }
 
     @GetMapping
-    public List<DoctorDataPublic> getDoctors(){
-        return doctorRepository.findAll().stream().map(DoctorDataPublic::new).toList();
+    public Page<DoctorDataPublic> getDoctors(Pageable pageable){
+        return doctorRepository.findAll(pageable).map(DoctorDataPublic::new);
     }
 }
