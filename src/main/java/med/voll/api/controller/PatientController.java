@@ -2,10 +2,7 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.patient.Patient;
-import med.voll.api.patient.PatientDataPublicDto;
-import med.voll.api.patient.PatientDto;
-import med.voll.api.patient.PatientRepository;
+import med.voll.api.patient.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,5 +25,12 @@ public class PatientController {
     @GetMapping
     public Page<PatientDataPublicDto> getPatients(@PageableDefault(size = 10, sort = "name")Pageable pageable){
         return patientRepository.findAll(pageable).map(PatientDataPublicDto::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void updatePatient(@RequestBody @Valid PatientUpdateDataDto data){
+        var patient = patientRepository.getReferenceById(data.id());
+        patient.UpdateInfo(data);
     }
 }
