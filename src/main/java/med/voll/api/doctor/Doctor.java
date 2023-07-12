@@ -25,6 +25,7 @@ public class Doctor {
     private Specialty specialty;
     @Embedded
     private Address address;
+    private Boolean active;
 
     public Doctor(DoctorDto doctorDto) {
         this.name = doctorDto.name();
@@ -33,6 +34,7 @@ public class Doctor {
         this.crm = doctorDto.crm();
         this.specialty = doctorDto.specialty();
         this.address = new Address(doctorDto.address());
+        this.active = true;
     }
 
     public void updateInfo(DoctorUpdateDataDto data) {
@@ -45,5 +47,9 @@ public class Doctor {
         if(data.address() != null){
             this.address.updateInfo(data.address());
         }
+    }
+
+    public void delete() {
+        this.active = false;
     }
 }
