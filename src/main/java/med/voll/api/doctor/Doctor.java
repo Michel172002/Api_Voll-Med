@@ -49,7 +49,7 @@ public class Doctor {
         }
     }
 
-    public void delete() {
+    public void deactivateDoctor() {
         this.active = false;
     }
 }
