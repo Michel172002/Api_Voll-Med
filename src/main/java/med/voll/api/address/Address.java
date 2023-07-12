@@ -19,4 +19,13 @@ public class Address {
     private String number;
     private String complement;
 
+    public Address(AddressDto addressDto) {
+        this.street = addressDto.street();
+        this.district = addressDto.district();
+        this.cep = addressDto.cep();
+        this.city = addressDto.city();
+        this.uf = addressDto.uf();
+        this.number = addressDto.number();
+        this.complement = addressDto.complement();
+    }
 }
