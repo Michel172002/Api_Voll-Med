@@ -2,7 +2,7 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.doctor.*;
+import med.voll.api.domain.doctor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +31,7 @@ public class DoctorController {
 
     @GetMapping("/{id}")
     public ResponseEntity getDoctor(@PathVariable(value = "id") Long id){
-        var doctor = doctorRepository.findById(id).get();
+        var doctor = doctorRepository.getReferenceById(id);
 
         return ResponseEntity.ok(new DoctorDetailsDataDto(doctor));
     }
