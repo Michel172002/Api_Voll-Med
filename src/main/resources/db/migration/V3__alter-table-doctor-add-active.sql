@@ -1,2 +1,5 @@
-alter table doctors add active tinyint;
-update doctors set active=1;
+ALTER TABLE doctors
+ADD active BOOLEAN;
+
+UPDATE doctors
+SET active = TRUE;

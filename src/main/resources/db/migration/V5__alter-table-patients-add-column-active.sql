@@ -1,2 +1,5 @@
-alter table patients add active tinyint;
-update patients set active=1;
+ALTER TABLE patients
+ADD active BOOLEAN;
+
+UPDATE patients
+SET active = TRUE;

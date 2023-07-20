@@ -1,1 +1,2 @@
-alter table doctors add phone varchar(20) not null;
+ALTER TABLE doctors
+ADD phone VARCHAR(20) NOT NULL;
