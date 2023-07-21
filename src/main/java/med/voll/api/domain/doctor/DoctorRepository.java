@@ -14,7 +14,7 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     @Query("""
             select d from Doctor d
             where 
-            d.active = 1
+            d.active = true
             and
             d.specialty = :specialty
             and
@@ -23,7 +23,7 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
                 where
                 c.date = :date
             )
-            order by rand()
+            order by random()
             limit 1          
             """)
     Doctor choiceRandomDoctorFree(Specialty specialty, LocalDateTime date);
