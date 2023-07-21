@@ -1,8 +1,7 @@
-package med.voll.api.domain.consult.validations;
+package med.voll.api.domain.consult.validations.schedule;
 
 import med.voll.api.domain.ValidationException;
 import med.voll.api.domain.consult.ConsultScheduleData;
-import med.voll.api.domain.doctor.DoctorRepository;
 import med.voll.api.domain.patient.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
