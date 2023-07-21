@@ -22,6 +22,8 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
                 select c.doctor.id from Consult c
                 where
                 c.date = :date
+                and
+                c.reason is null
             )
             order by random()
             limit 1          

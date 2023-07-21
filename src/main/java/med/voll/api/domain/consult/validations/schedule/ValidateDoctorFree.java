@@ -13,7 +13,7 @@ public class ValidateDoctorFree implements ValidatorConsultSchedule{
     private ConsultRepository consultRepository;
 
     public void validate(ConsultScheduleData data){
-        var doctorHaveAnotherScheduleAtTheTime = consultRepository.existsByDoctorIdAndDate(data.idDoctor(), data.date());
+        var doctorHaveAnotherScheduleAtTheTime = consultRepository.existsByDoctorIdAndDateAndReasonIsNull(data.idDoctor(), data.date());
 
         if(doctorHaveAnotherScheduleAtTheTime){
             throw new ValidationException("Medico já possui outra consulta agendada nesse horario!");

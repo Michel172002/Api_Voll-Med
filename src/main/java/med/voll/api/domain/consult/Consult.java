@@ -32,4 +32,11 @@ public class Consult {
 
     private LocalDateTime date;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Reason reason;
+
+    public void cancel(Reason reason) {
+        this.reason = reason;
+    }
 }
