@@ -1,0 +1,2 @@
+ALTER TABLE consult
+ADD reason VARCHAR(30);
